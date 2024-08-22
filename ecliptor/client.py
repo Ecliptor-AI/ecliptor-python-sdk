@@ -19,12 +19,13 @@ class Ecliptor:
             "Content-Type": "application/json"
         })
 
-    def adapt(self, embedding: List[float]) -> Dict[str, Any]:
+    def adapt(self, embedding: List[float], adapter_name: str) -> Dict[str, Any]:
         """
         Process a vector embedding by sending it to the Ecliptor API.
 
         Args:
             embedding (List[float]): The input vector embedding.
+            adapter_name: unique identifier for the adapter
 
         Returns:
             Dict[str, Any]: The processed results from the API.
@@ -34,12 +35,16 @@ class Ecliptor:
 
         Questions: do i need to make the vector dimensions a parameter? will this change the call on the backend?
         """
-        data = {"embedding": embedding}
+        data = {
+            "api_key": self.api_key,
+            "embedding": embedding,
+            "adapter_name": adapter_name,
+        }
 
         try:
-            response = self.session.post(f"{self.base_url}/adapt", json=data)
+            response = self.session.get(f"{self.base_url}/adapt", json=data)
             response.raise_for_status()
-            return response.json()["embedding"] # Just return the list of floats
+            return response.json()[0]["finetuned_embedding"] # Just return the list of floats
         except requests.exceptions.RequestException as e:
             raise EcliptorAPIError(f"API request failed: {str(e)}") from e
 
