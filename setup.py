@@ -6,7 +6,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name="ecliptor",
-    version="0.1.0",
+    version="0.1.1",
     author="Nanki Grewal",
     author_email="nanki@ecliptor.ai",
     description="Python SDK for the Ecliptor API",
