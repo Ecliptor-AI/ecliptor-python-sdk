@@ -5,7 +5,6 @@ openai_client = OpenAI()
 
 ecliptor_client = Ecliptor(
     api_key="da9f4b90dafa2dba4ac25b70446db8135fd593f68613a8cb44c44e219ec7716f9e239b1d47ddf092d871ee194773ca38",
-    base_url="http://localhost:8000/" # todo update url - local testing only
 )
 
 def example_usage():
@@ -19,7 +18,7 @@ def example_usage():
     adapter_name = "residual_1"
 
     try:
-        result = ecliptor_client.adapt(query, adapter_name)
+        result = ecliptor_client.adapt(query, adapter_name, 3072)
         print("Adapted Embedding successfully calculated, length:", len(result))
     except Exception as e:
         print(f"An error occurred: {e}")
