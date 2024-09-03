@@ -9,7 +9,7 @@ setup(
     version="0.1.0",
     author="Nanki Grewal",
     author_email="nanki@ecliptor.ai",
-    description="A Python SDK for the Ecliptor API",
+    description="Python SDK for the Ecliptor API",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Ecliptor/ecliptor-python-sdk",
@@ -29,7 +29,6 @@ setup(
     python_requires=">=3.7",
     install_requires=[
         "requests>=2.25.0",
-        "numpy>=1.19.0", # add more stuff here
     ],
     extras_require={
         "dev": ["pytest>=6.0", "flake8>=3.9.0"],

@@ -1,10 +1,10 @@
-from ecliptor.client import Ecliptor
+from ..src.ecliptor import Ecliptor
 from openai import OpenAI
 
 openai_client = OpenAI()
 
 ecliptor_client = Ecliptor(
-    api_key="5a2f36c0487885cc61afae69c4c4768087b86a0ab74652678be8e9415a9221157681adc4d52e5348cf2f1b43910235da",
+    api_key="da9f4b90dafa2dba4ac25b70446db8135fd593f68613a8cb44c44e219ec7716f9e239b1d47ddf092d871ee194773ca38",
     base_url="http://localhost:8000/" # todo update url - local testing only
 )
 
