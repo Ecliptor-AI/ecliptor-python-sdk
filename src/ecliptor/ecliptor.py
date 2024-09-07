@@ -42,7 +42,7 @@ class Ecliptor:
         }
 
         try:
-            response = self.session.get(f"{self.base_url}/adapt", json=data)
+            response = self.session.post(f"{self.base_url}/v1/adapt", json=data)
             response.raise_for_status()
             return response.json()[0]["finetuned_embedding"] # Just return the list of floats
         except requests.exceptions.RequestException as e:

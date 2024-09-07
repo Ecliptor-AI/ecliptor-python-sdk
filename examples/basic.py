@@ -1,4 +1,4 @@
-from ..src.ecliptor import Ecliptor
+from ecliptor import Ecliptor
 from openai import OpenAI
 
 openai_client = OpenAI()
@@ -17,11 +17,13 @@ def example_usage():
     query = response.data[0].embedding
     adapter_name = "residual_1"
 
-    try:
-        result = ecliptor_client.adapt(query, adapter_name, 3072)
-        print("Adapted Embedding successfully calculated, length:", len(result))
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    print(query)
+
+    # try:
+    #     result = ecliptor_client.adapt(query, adapter_name, 3072)
+    #     print("Adapted Embedding successfully calculated, length:", len(result))
+    # except Exception as e:
+    #     print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
     example_usage()
